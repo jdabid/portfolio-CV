@@ -1,6 +1,6 @@
 ---
 name: git-workflow
-description: Creates a feature branch, commits changes with conventional commits, pushes, and merges to main
+description: Creates a feature branch, commits changes with conventional commits, pushes, and merges to main keeping remote branches
 ---
 
 # Git Workflow Standards
@@ -13,7 +13,7 @@ description: Creates a feature branch, commits changes with conventional commits
 5. Switch to main
 6. Merge the feature branch into main
 7. Push main to remote
-8. Delete the feature branch (local)
+8. Delete the feature branch locally only (keep remote branch)
 9. Show summary of what was done
 
 ## Branch Naming Convention
@@ -47,6 +47,7 @@ description: Creates a feature branch, commits changes with conventional commits
 - If multiple unrelated changes exist, ask user to split into separate branches
 - Never force push
 - Always confirm before merging to main
+- NEVER delete remote branches, only delete local branch after merge
 - Show `git log --oneline -5` after merge to confirm
 
 ## Example Full Flow
@@ -61,7 +62,6 @@ git checkout main
 git merge feat/profile-create-slice
 git push origin main
 git branch -d feat/profile-create-slice
-git push origin --delete feat/profile-create-slice
 ```
 ```
 
@@ -77,7 +77,7 @@ Claude Code va a:
 3. Push del branch
 4. Merge a main
 5. Push main
-6. Limpiar el branch
+6. Limpiar el branch local
 
 Tu historial de Git en GitHub se va a ver así:
 ```
