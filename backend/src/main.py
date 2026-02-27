@@ -6,8 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src.config import settings
 from src.shared.database import engine
-from src.shared.redis_client import get_redis, close_redis
-from src.shared.rabbitmq import get_connection as get_rabbitmq, close_rabbitmq
+from src.shared.rabbitmq import close_rabbitmq
+from src.shared.rabbitmq import get_connection as get_rabbitmq
+from src.shared.redis_client import close_redis, get_redis
 
 logger = logging.getLogger(__name__)
 
