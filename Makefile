@@ -1,8 +1,9 @@
-.PHONY: help up down build logs migrate test lint shell-api shell-db
+.PHONY: help up down build logs migrate test lint lint-fix shell-api shell-db setup
 
 help:
 	@echo "CV Simulator — Available commands:"
 	@echo ""
+	@echo "  make setup       Install pre-commit hooks (run once)"
 	@echo "  make up          Start all services (dev)"
 	@echo "  make down        Stop all services"
 	@echo "  make build       Rebuild all Docker images"
@@ -11,8 +12,13 @@ help:
 	@echo "  make migrate     Run Alembic migrations"
 	@echo "  make test        Run backend tests"
 	@echo "  make lint        Run ruff linter"
+	@echo "  make lint-fix    Run ruff linter with auto-fix"
 	@echo "  make shell-api   Open a shell in the api container"
 	@echo "  make shell-db    Open psql in the postgres container"
+
+setup:
+	pre-commit install
+	@echo "Pre-commit hooks installed."
 
 up:
 	docker compose up --build
@@ -43,6 +49,10 @@ test:
 
 lint:
 	docker compose exec api ruff check src/ tests/
+
+lint-fix:
+	docker compose exec api ruff check --fix src/ tests/
+	docker compose exec api ruff format src/ tests/
 
 shell-api:
 	docker compose exec api /bin/sh
