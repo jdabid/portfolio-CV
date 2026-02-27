@@ -3,7 +3,7 @@ import logging
 from typing import Any
 
 import aio_pika
-from aio_pika import Connection, Channel
+from aio_pika import Channel, Connection
 
 from src.config import settings
 
