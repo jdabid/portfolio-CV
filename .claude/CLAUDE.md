@@ -21,6 +21,15 @@ Interactive CV/portfolio application with AI-powered features.
 - pytest + httpx for testing
 - All infrastructure as code in /infra
 
+## Git Conventions
+- **Commits:** Conventional Commits → `type(scope): description`
+  - Types: feat, fix, refactor, chore, test, docs, ci, style, perf
+  - Scopes: auth, users, cv, ai, shared, infra, ci, deps
+- **Branches:** `{type}/{short-description}` (e.g., `feature/auth-login`, `fix/cv-export`)
+- **Flow:** branch from main → commits → push → PR → squash merge → delete branch
+- Never commit directly to main
+- See `docs/git-conventions.md` for full details
+
 ## Project Structure
 backend/src/{feature_name}/{action}/
   ├── endpoint.py      # FastAPI router

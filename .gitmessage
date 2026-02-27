@@ -1,0 +1,30 @@
+# <type>(<scope>): <description>
+#
+# [optional body]
+#
+# [optional footer]
+#
+# --- TYPES ---
+# feat:     New feature
+# fix:      Bug fix
+# refactor: Code change (no new feature, no bug fix)
+# chore:    Maintenance (deps, configs, scripts)
+# test:     Add or modify tests
+# docs:     Documentation only
+# ci:       CI/CD changes
+# style:    Formatting, linting (no logic change)
+# perf:     Performance improvement
+#
+# --- SCOPES ---
+# auth, users, cv, ai, shared, infra, ci, deps
+#
+# --- RULES ---
+# - English, imperative, lowercase, no period
+# - Max 72 chars on first line
+# - Use body for "why" if not obvious
+#
+# --- EXAMPLES ---
+# feat(auth): add JWT login endpoint
+# fix(cv): resolve null pointer on empty sections
+# chore(infra): add docker-compose.dev.yml
+# test(auth): add login integration tests
