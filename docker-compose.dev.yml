@@ -1,0 +1,19 @@
+name: cv-simulator
+
+services:
+  api:
+    environment:
+      - DEBUG=true
+    volumes:
+      - ./backend/src:/app/src
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+
+  celery-worker:
+    volumes:
+      - ./backend/src:/app/src
+    command: celery -A src.worker worker --loglevel=debug --concurrency=1
+
+  frontend:
+    volumes:
+      - ./frontend/src:/app/src
+    command: npm run dev -- --host 0.0.0.0 --port 80

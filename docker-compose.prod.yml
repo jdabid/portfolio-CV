@@ -1,0 +1,27 @@
+name: cv-simulator
+
+services:
+  api:
+    restart: always
+    volumes: []
+    environment:
+      - DEBUG=false
+
+  celery-worker:
+    restart: always
+    volumes: []
+
+  frontend:
+    restart: always
+
+  postgres:
+    restart: always
+
+  redis:
+    restart: always
+
+  rabbitmq:
+    restart: always
+
+  nginx:
+    restart: always
