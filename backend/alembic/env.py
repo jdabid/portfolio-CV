@@ -1,6 +1,7 @@
 import asyncio
 from logging.config import fileConfig
 
+import src.users.domain.models  # noqa: F401 — register User model for autogenerate
 from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config

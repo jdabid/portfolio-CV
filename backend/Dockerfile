@@ -10,7 +10,7 @@ ENV PATH="/venv/bin:$PATH"
 RUN pip install --upgrade pip && pip install hatch
 
 COPY pyproject.toml .
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir ".[dev]"
 
 # ---- Production stage ----
 FROM python:3.12-slim AS production
@@ -31,6 +31,7 @@ ENV PATH="/venv/bin:$PATH"
 COPY src/ ./src/
 COPY alembic.ini .
 COPY alembic/ ./alembic/
+COPY tests/ ./tests/
 
 RUN chown -R appuser:appgroup /app
 USER appuser
