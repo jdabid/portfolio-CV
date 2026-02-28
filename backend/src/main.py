@@ -9,6 +9,7 @@ from src.shared.database import engine
 from src.shared.rabbitmq import close_rabbitmq
 from src.shared.rabbitmq import get_connection as get_rabbitmq
 from src.shared.redis_client import close_redis, get_redis
+from src.users.router import router as users_router
 
 logger = logging.getLogger(__name__)
 
@@ -73,6 +74,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(users_router)
 
 
 @app.get("/health", tags=["system"])

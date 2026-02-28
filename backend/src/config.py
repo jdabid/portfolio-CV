@@ -28,6 +28,10 @@ class Settings(BaseSettings):
     debug: bool = True
     allowed_origins: list[str] = ["http://localhost:3000"]
 
+    # JWT
+    jwt_algorithm: str = "HS256"
+    access_token_expire_minutes: int = 60
+
     # Anthropic
     anthropic_api_key: str = ""
 
